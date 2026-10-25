@@ -9,13 +9,48 @@ body {
 
 /* ---------- Cabeçalho + menu ---------- */
 header {
-  background: #0f172a;
+  position: relative;
+  overflow: hidden;
+  background: #061a3a;
   color: white;
-  padding: 28px 24px 64px;
+  padding: 28px 24px 56px;
   text-align: center;
 }
-header h1 { font-size: 32px; margin-bottom: 8px; }
-header p { color: #cbd5e1; max-width: 640px; margin: 0 auto; }
+header > * { position: relative; z-index: 1; }
+/* detalhe de placa de circuito + pulso de luz (inspirado no projeto da palestra) */
+header::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='260' viewBox='0 0 220 260' fill='none' stroke='%2338bdf8' stroke-opacity='.35' stroke-width='1.5'><g transform='translate(0 0)'><path d='M0 30H80L100 50H150'/><path d='M0 60H60L84 84H120L140 104'/><path d='M0 100H40L60 120H110'/><path d='M0 170H70L90 190H160L178 208'/><path d='M0 210H50L66 226H100'/><g fill='%2338bdf8' fill-opacity='.6' stroke='none'><circle cx='150' cy='50' r='3'/><circle cx='140' cy='104' r='3'/><circle cx='110' cy='120' r='3'/><circle cx='178' cy='208' r='3'/><circle cx='100' cy='226' r='3'/></g></g></svg>"), url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='260' viewBox='0 0 220 260' fill='none' stroke='%2338bdf8' stroke-opacity='.35' stroke-width='1.5'><g transform='translate(220 0) scale(-1 1)'><path d='M0 30H80L100 50H150'/><path d='M0 60H60L84 84H120L140 104'/><path d='M0 100H40L60 120H110'/><path d='M0 170H70L90 190H160L178 208'/><path d='M0 210H50L66 226H100'/><g fill='%2338bdf8' fill-opacity='.6' stroke='none'><circle cx='150' cy='50' r='3'/><circle cx='140' cy='104' r='3'/><circle cx='110' cy='120' r='3'/><circle cx='178' cy='208' r='3'/><circle cx='100' cy='226' r='3'/></g></g></svg>");
+  background-repeat: no-repeat;
+  background-position: left top, right top;
+  background-size: auto 100%;
+  opacity: 0.8;
+}
+header::after {
+  content: "";
+  position: absolute;
+  left: 0; right: 0; bottom: 18px;
+  height: 2px;
+  z-index: 0;
+  background:
+    linear-gradient(90deg, transparent, #7dd3fc, #fff, #7dd3fc, transparent) 0% 0 / 140px 100% no-repeat,
+    linear-gradient(90deg, transparent, rgba(56, 189, 248, 0.35) 15%, rgba(56, 189, 248, 0.35) 85%, transparent);
+  filter: drop-shadow(0 0 4px #38bdf8);
+  animation: pulseLine 4.5s ease-in-out infinite;
+}
+@keyframes pulseLine {
+  from { background-position: 0% 0, 0 0; }
+  to { background-position: 100% 0, 0 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  header::after { animation: none; }
+}
+
+header h1 { font-size: 32px; margin-bottom: 8px; color: #fff; text-shadow: 0 0 10px rgba(125, 211, 252, 0.7), 0 0 22px rgba(56, 189, 248, 0.35); }
+header p { color: #fff; max-width: 640px; margin: 0 auto; text-shadow: 0 0 8px rgba(125, 211, 252, 0.45); }
 
 nav {
   display: flex;
@@ -25,7 +60,8 @@ nav {
   margin-bottom: 32px;
 }
 nav a {
-  color: #cbd5e1;
+  color: #fff;
+  text-shadow: 0 0 8px rgba(125, 211, 252, 0.45);
   text-decoration: none;
   font-size: 14px;
   font-weight: 600;
@@ -33,16 +69,17 @@ nav a {
   border-radius: 999px;
   transition: background 0.2s;
 }
-nav a:hover { background: #1e293b; color: white; }
-nav a.active { background: white; color: #0f172a; }
+nav a:hover { background: rgba(125, 211, 252, 0.15); color: #fff; }
+nav a.active { background: white; color: #0f172a; text-shadow: none; }
 
 /* ---------- Conteúdo ---------- */
-.container { max-width: 1100px; margin: -32px auto 0; padding: 0 20px 60px; }
+.container { max-width: 1100px; margin: 0 auto; padding: 0 20px 60px; }
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 24px;
-  margin-top: 32px;
+  justify-content: center;
+  margin-top: 48px;
 }
 
 .card {
@@ -88,7 +125,7 @@ nav a.active { background: white; color: #0f172a; }
 .btn-outline { border: 1px solid #cbd5e1; color: #0f172a; background: white; }
 
 /* ---------- Página de tema ---------- */
-.page-card { padding: 36px; margin-top: 32px; }
+.page-card { padding: 36px; margin: 48px auto 0; max-width: 820px; }
 .page-card h2 { font-size: 24px; }
 .page-card h3 { font-size: 16px; margin: 22px 0 8px; }
 .page-card p + p { margin-top: 12px; }
