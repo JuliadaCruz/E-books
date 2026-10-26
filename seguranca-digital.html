@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Segurança digital - Biblioteca Digital</title>
+<meta name="description" content="Ebook Cibersegurança, Desinformação e Sistemas Críticos.">
 <link rel="icon" type="image/png" href="favicon.png">
 <link rel="stylesheet" href="style.css">
 </head>
@@ -21,14 +22,90 @@
 
 <div class="container">
   <div class="card page-card">
-    <span class="badge soon">○ EM BREVE</span>
-    <h2>🔒 Material em breve</h2>
-    <p>O ebook e os slides deste tema ainda estão sendo preparados.</p>
-    <div class="topics">
-      <strong>Vai incluir:</strong>
-      <ul><li>Senhas, 2FA, phishing, LGPD</li><li>Boas práticas no dia a dia</li></ul>
+    <span class="badge ok">● DISPONÍVEL</span>
+    <h2>🔒 Cibersegurança, Desinformação e Sistemas Críticos</h2>
+    <p style="margin-top:6px;"><em>Fundamentos, desinformação, riscos de IA e a arquitetura de confiança de sistemas críticos</em></p>
+
+    <div class="meta">
+      <span>5 páginas</span>
+      <span>PDF</span>
+      <span>288 KB</span>
     </div>
-    <div class="btn-row"><a class="btn btn-primary" href="index.html">← Voltar ao início</a></div>
+
+    <div class="btn-row">
+      <a class="btn btn-primary" href="ebooks/Ciberseguranca_Desinformacao_Sistemas_Criticos.pdf" download>⬇ Baixar PDF</a>
+      <a class="btn btn-outline" href="ebooks/Ciberseguranca_Desinformacao_Sistemas_Criticos.pdf" target="_blank" rel="noopener">📖 Ler online</a>
+    </div>
+
+    <div class="doc">
+      <h3>1. Introdução: a crise da confiabilidade da informação</h3>
+      <p>A evolução da internet transformou radicalmente a maneira como a sociedade consome, produz e partilha informações. Se na Web 1.0 o utilizador era um mero espectador de conteúdos estáticos, a transição para a Web 2.0 e para as interações baseadas em algoritmos de Inteligência Artificial consolidou um cenário onde qualquer indivíduo possui o poder de um veículo de comunicação em massa. Contudo, essa democratização trouxe um efeito colateral significativo: a crise da confiabilidade da informação.</p>
+      <p>Diferente das mídias tradicionais, no ambiente virtual o fluxo de dados é imediato e horizontal, facilitando a disseminação de notícias falsas ("Fake News") que afetam processos democráticos, a saúde pública e a segurança cibernética. Este trabalho tem como objetivo principal explorar a interseção entre o consumo de informações no ambiente digital e a cibersegurança, demonstrando que a principal linha de defesa contra as ameaças do século XXI não é composta apenas por softwares antivírus, mas pelo letramento digital e pelo senso crítico do utilizador.</p>
+
+      <h3>2. O ecossistema da desinformação e riscos tecnológicos</h3>
+
+      <h4>2.1. A ameaça das deepfakes e a Inteligência Artificial</h4>
+      <p>Com o avanço da IA Generativa, a desinformação atingiu um novo patamar através das "Deepfakes" — mídias sintéticas onde o rosto ou a voz de uma pessoa são substituídos com extremo realismo. Distinguir um vídeo real de uma deepfake exige análise rigorosa não apenas da mídia, mas da fonte que a publicou.</p>
+
+      <h4>2.2. Psicologia do utilizador e engenharia social</h4>
+      <p>Criminosos utilizam a engenharia social explorando a mente humana através de:</p>
+      <ul class="list">
+        <li><strong>Gatilhos emocionais:</strong> conteúdos desenhados para gerar medo, indignação ou urgência, ofuscando o raciocínio lógico.</li>
+        <li><strong>Viés de confirmação:</strong> tendência natural de procurar informações que confirmem crenças prévias.</li>
+        <li><strong>Efeito Dunning-Kruger:</strong> indivíduos com pouco conhecimento sobre um tema acreditam saber mais do que os especialistas, tornando-se vulneráveis a teorias da conspiração.</li>
+      </ul>
+
+      <h4>2.3. Algoritmos e "bolhas de filtro"</h4>
+      <p>As redes sociais utilizam algoritmos de recomendação para manter o utilizador conectado, criando "Câmaras de Eco" onde o utilizador perde o contato com o contraditório, validando visões de mundo extremas.</p>
+
+      <h4>2.4. Métodos práticos de identificação e higiene cibernética</h4>
+      <div class="highlight-box">
+        <p><strong>Práticas essenciais de defesa:</strong> leitura lateral de fontes, análise crítica de clickbait, inspeção de URLs (contra typosquatting), busca reversa de imagens, consulta a agências de fact-checking (Lupa, Aos Fatos), gestão robusta de senhas, Autenticação de Múltiplos Fatores (MFA) e postura de desconfiança por padrão (Zero Trust).</p>
+      </div>
+
+      <h3>3. Aplicação prática: segurança da urna eletrônica</h3>
+      <p>Para compreender como a segurança digital é aplicada em infraestruturas críticas, analisa-se a arquitetura e os controles da urna eletrônica brasileira (modelos UE2020 e UE2022).</p>
+
+      <h4>3.1. Arquitetura e cadeia de confiança</h4>
+      <ul class="list">
+        <li><strong>Módulo de Segurança Embarcado (MSE):</strong> módulo ARM com memória não volátil, TRNG e áreas protegidas para chaves, resistente a violações (tamperproof) e certificado pela ICP-Brasil.</li>
+        <li><strong>Cadeia de confiança do boot:</strong> a inicialização valida rigorosamente o hardware, BIOS, bootloader, kernel e aplicativos utilizando assinaturas digitais (RSA, ECDSA, EdDSA).</li>
+      </ul>
+
+      <h4>3.2. Ciclo de vida e controles</h4>
+      <div class="table-wrap">
+        <table>
+          <tr>
+            <th>Fase do processo</th>
+            <th>Controles de segurança documentados</th>
+          </tr>
+          <tr>
+            <td><strong>Desenvolvimento e inspeção</strong></td>
+            <td>Código segregado no TSE, assinatura em sala-cofre e inspeção por 14 classes de entidades fiscalizadoras.</td>
+          </tr>
+          <tr>
+            <td><strong>Testes e lacração</strong></td>
+            <td>Teste Público de Segurança (TPS), cerimónias públicas de assinatura digital e lacres físicos da Casa da Moeda.</td>
+          </tr>
+          <tr>
+            <td><strong>Votação e transmissão</strong></td>
+            <td>Emissão de Zerésima, Teste de Integridade, Boletim de Urna (BU) com QR Code assinado e transmissão via rede privada e cifrada (JE-Connect).</td>
+          </tr>
+        </table>
+      </div>
+
+      <h3>4. Conclusão</h3>
+      <p>A complexidade do ambiente digital moderno exige que os utilizadores adotem uma postura ativa de cibersegurança. Seja na navegação quotidiana contra desinformação ou na validação de sistemas eletrónicos complexos, o letramento digital, a adoção rigorosa de higiene cibernética e o pensamento crítico representam o firewall mais robusto da sociedade moderna.</p>
+
+      <h3>5. Referências bibliográficas</h3>
+      <ul class="list">
+        <li>BRASIL. Tribunal Superior Eleitoral (TSE). Fato ou Boato: Desmistificando a Desinformação nas Eleições.</li>
+        <li>CERT.br. Cartilha de Segurança para Internet.</li>
+        <li>D'ANCONA, Matthew. Pós-Verdade: A Nova Guerra Contra os Fatos em Tempos de Fake News.</li>
+        <li>TSE. Teste Público da Urna (TPU): Relatórios e resultados (2009-2025).</li>
+        <li>ARANHA et al. (In) segurança do voto eletrônico no Brasil. Cadernos Adenauer, 2014.</li>
+      </ul>
+    </div>
   </div>
 </div>
 
